@@ -2,8 +2,36 @@
 
     <PropertyGroup>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Description>
+            A tiny little package that let's you attach properties to .NET types dynamically at runtime
+        </Description>
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Version>0.9.0</Version>
+
+        <Authors>James Crosswell</Authors>
+        <Company>Mental Desk Limited</Company>
+
+        <PackageTags>mentaldesk;utilities;dotnet;dynamic-programming</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+
+        <RepositoryType>git</RepositoryType>
+        <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+        <RepositoryUrl>https://github.com/mentaldesk/fuse</RepositoryUrl>
+
+        <!--
+          SourceLink configuration
+          See https://github.com/dotnet/sourcelink/blob/main/README.md
+          And https://learn.microsoft.com/dotnet/core/project-sdk/msbuild-props
+        -->
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+
+        <!-- See https://learn.microsoft.com/en-us/dotnet/csharp/nullable-references#nullable-contexts -->
         <Nullable>enable</Nullable>
     </PropertyGroup>
 

@@ -1,2 +1,2 @@
 # fuse
-A tiny little package that let's you add properties to .NET types at runtime. 
+Fuse is a tiny package that let's you attach properties to .NET types dynamically at runtime.

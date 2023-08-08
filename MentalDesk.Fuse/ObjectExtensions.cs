@@ -61,7 +61,7 @@ public static class ObjectExtensions
     /// </summary>
     /// <param name="source">The object being extended with a fused property</param>
     /// <typeparam name="T">The type of the fused property</typeparam>
-    /// <returns>The instance of <typeparam name="T"></typeparam> that is fused to <paramref name="source"/></returns>
+    /// <returns>The instance of <typeparamref name="T"></typeparamref> that is fused to <paramref name="source"/></returns>
     public static T Fused<T>(this object source) where T : new()
     {
         var propertyName = $"{FusedPrefix}.{typeof(T).Name}";
