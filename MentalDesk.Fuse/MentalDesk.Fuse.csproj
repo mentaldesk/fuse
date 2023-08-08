@@ -12,6 +12,7 @@
         <Authors>James Crosswell</Authors>
         <Company>Mental Desk Limited</Company>
 
+        <PackageId>MentalDesk.Fuse</PackageId>
         <PackageTags>mentaldesk;utilities;dotnet;dynamic-programming</PackageTags>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>

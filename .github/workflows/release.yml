@@ -26,10 +26,10 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore $SOLUTION
       - name: Build
-        run: dotnet build -c Release -p:Version=${{ github.event.inputs.version }} --no-restore
+        run: dotnet build --configuration Release /p:Version=${{ github.event.inputs.version }} --no-restore
       - name: Test
-        run: dotnet test /p:Configuration=Release --no-restore --no-build --verbosity normal
+        run: dotnet test --configuration Release /p:Version=${{ github.event.inputs.version }} --no-restore --no-build --verbosity normal
       - name: Package
-        run: dotnet pack -c Release --no-restore --no-build --output .
+        run: dotnet pack --configuration Release /p:Version=${{ github.event.inputs.version }} --no-restore --no-build --output .
       - name: Push to NuGet
         run: dotnet nuget push "*.nupkg" --api-key ${{secrets.nuget_api_key}} --source https://api.nuget.org/v3/index.json
