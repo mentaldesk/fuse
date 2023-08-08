@@ -47,7 +47,7 @@ jobs:
       run: dotnet build --configuration $BUILD_CONFIG -p:Version=$BUILD_VERSION --no-restore
 
     - name: Test
-      run: dotnet test /p:Configuration=$env:BUILD_CONFIG --no-restore --no-build --verbosity normal
+      run: dotnet test /p:Configuration=$BUILD_CONFIG --no-restore --no-build --verbosity normal
 
     - name: Package
       if: startsWith(github.ref, 'refs/heads/release')
