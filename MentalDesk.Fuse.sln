@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentalDesk.Fuse.Tests", "MentalDesk.Fuse.Tests\MentalDesk.Fuse.Tests.csproj", "{59C8FB29-DC01-4FAA-A02C-443250C7FBDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MentalDesk.Fuse", "MentalDesk.Fuse\MentalDesk.Fuse.csproj", "{00B68F80-D933-4952-BDBF-B0C56D7F774F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59C8FB29-DC01-4FAA-A02C-443250C7FBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59C8FB29-DC01-4FAA-A02C-443250C7FBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59C8FB29-DC01-4FAA-A02C-443250C7FBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59C8FB29-DC01-4FAA-A02C-443250C7FBDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B68F80-D933-4952-BDBF-B0C56D7F774F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B68F80-D933-4952-BDBF-B0C56D7F774F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B68F80-D933-4952-BDBF-B0C56D7F774F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B68F80-D933-4952-BDBF-B0C56D7F774F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
