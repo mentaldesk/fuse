@@ -14,6 +14,7 @@ jobs:
   build:
     env:
       SOLUTION: 'MentalDesk.Fuse.sln'
+      PROJECT: 'MentalDesk.Fuse.csproj'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -30,6 +31,6 @@ jobs:
       - name: Test
         run: dotnet test --configuration Release /p:Version=${{ github.event.inputs.version }} --no-restore --no-build --verbosity normal
       - name: Package
-        run: dotnet pack --configuration Release /p:Version=${{ github.event.inputs.version }} --no-restore --no-build --output .
+        run: dotnet pack $PROJECT --configuration Release /p:Version=${{ github.event.inputs.version }} --no-restore --no-build --output .
       - name: Push to NuGet
         run: dotnet nuget push "*.nupkg" --api-key ${{secrets.nuget_api_key}} --source https://api.nuget.org/v3/index.json --skip-duplicate
