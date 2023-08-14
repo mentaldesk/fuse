@@ -31,10 +31,31 @@ var luckyNumber = myObject.GetFused<MyClass>("foobar")!.Foo;
 var result = myObject.GetFused<MyClass>("foobar")!.Bar;
 ```
 
+## Generic overloads
+
+Alternatively you can use the Generic overloads, `SetFused<T>` and `GetFused<T>`, which automatically assign a property
+name based on the type of the value being stored/retrieved.
+
+```csharp
+var myObject = "A simple string";
+var myClass = new MyClass { Foo = 42, Bar = "Success!" };
+myObject.SetFused<MyClass>(myClass);
+
+var luckyNumber = myObject.GetFused<MyClass>()!.Foo;
+var result = myObject.GetFused<MyClass>()!.Bar;
+
+class MyClass 
+{
+    public int Foo {get; set; }
+    public string Bar {get; set; }
+}
+```
+
 ## Fused
 
-`Fused` is probably the most useful method. It lets you automatically bolt an additional property onto any object. You
-can see an example of how this is used in the `Sample` application, but it looks something like this in action:
+Finally, the `Fused` extension lets you automatically create and bolt an additional property onto any object. 
+
+You can see an example of how this is used in the `Sample` application, but it looks something like this in action:
 
 ```csharp
 // We start with a humble string
