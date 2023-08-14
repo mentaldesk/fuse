@@ -64,7 +64,6 @@ public static class ObjectExtensions
     /// Sets a fused property
     /// </summary>
     /// <param name="source">The object being extended with a fused property</param>
-    /// <param name="propertyName">The name of the property</param>
     /// <param name="value">The value of the property</param>
     public static void SetFused<T>(this object source, T value) => SetFused(source, typeof(T).Name, value);
 
