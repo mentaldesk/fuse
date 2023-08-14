@@ -35,7 +35,7 @@ public static class ObjectExtensions
 {
     private static ConditionalWeakTable<object, Dictionary<string, object?>> Map { get; } = new();
 
-    private static Dictionary<string, object?> AssociatedProperties(object source) =>
+    private static Dictionary<string, object?> AssociatedProperties(this object source) =>
         Map.GetValue(source, _ => new Dictionary<string, object?>());
 
     private static bool TryGetTypedValue<T>(this IDictionary<string, object?> source, string key,
@@ -61,6 +61,14 @@ public static class ObjectExtensions
         AssociatedProperties(source)[propertyName] = value;
 
     /// <summary>
+    /// Sets a fused property
+    /// </summary>
+    /// <param name="source">The object being extended with a fused property</param>
+    /// <param name="propertyName">The name of the property</param>
+    /// <param name="value">The value of the property</param>
+    public static void SetFused<T>(this object source, T value) => SetFused(source, typeof(T).Name, value);
+
+    /// <summary>
     /// Retrieves a fused property
     /// </summary>
     /// <param name="source">The object with the fused property</param>
@@ -69,15 +77,13 @@ public static class ObjectExtensions
     /// <returns>
     /// The instance of <typeparamref name="T"/> that is fused to <paramref name="source"/> or default(T) if none exists.    
     /// </returns>
-    public static T? GetFused<T>(this object source, string propertyName) =>
-        AssociatedProperties(source).TryGetTypedValue<T>(propertyName, out var value)
+    public static T? GetFused<T>(this object source, string? propertyName = null)
+    {
+        propertyName ??= typeof(T).Name;
+        return source.AssociatedProperties().TryGetTypedValue<T>(propertyName, out var value)
             ? value
             : default;
-
-    /// <summary>
-    /// Ensures automatic property names won't conflict with user provided names 
-    /// </summary>
-    private static readonly string FusedPrefix = Guid.NewGuid().ToString("N");
+    }
 
     /// <summary>
     /// Provides an instance of <typeparamref name="T"/> that will remain fused to <paramref name="source"/> until
@@ -88,12 +94,12 @@ public static class ObjectExtensions
     /// <returns>The instance of <typeparamref name="T"></typeparamref> that is fused to <paramref name="source"/></returns>
     public static T Fused<T>(this object source) where T : new()
     {
-        var propertyName = $"{FusedPrefix}.{typeof(T).Name}";
-        if (!AssociatedProperties(source).TryGetTypedValue<T>(propertyName, out var value))
+        var propertyName = typeof(T).Name;
+        if (!source.AssociatedProperties().TryGetTypedValue<T>(propertyName, out var value))
         {
             value = new T();
-            AssociatedProperties(source)[propertyName] = value;
+            source.AssociatedProperties()[propertyName] = value;
         }
         return value;
-    }
+    }    
 }

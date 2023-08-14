@@ -6,7 +6,18 @@ namespace MentalDesk.Fuse.Tests;
 public class ObjectExtensionsTests
 {
     [Fact]
-    public void GetValueOrDefault_ValidProperty_ReturnsValue()
+    public void SetFused_AutoPropertyName_StoresProperty()
+    {
+        var obj = new object();
+        obj.SetFused("Value");
+
+        var result = obj.GetFused<string>();
+
+        Assert.Equal("Value", result);
+    }
+
+    [Fact]
+    public void GetFused_ValidProperty_ReturnsValue()
     {
         var obj = new object();
         obj.SetFused("Test", "Value");
@@ -17,7 +28,7 @@ public class ObjectExtensionsTests
     }
 
     [Fact]
-    public void GetValueOrDefault_UnassignedProperty_ReturnsNull()
+    public void GetFused_UnassignedProperty_ReturnsNull()
     {
         var obj = new object();
 
@@ -27,7 +38,7 @@ public class ObjectExtensionsTests
     }
     
     [Fact]
-    public void GetValueOrDefault_InvalidPropertyType_ReturnsNull()
+    public void GetFused_InvalidPropertyType_ReturnsNull()
     {
         var obj = new object();
         obj.SetFused("StringProperty", "StringValue");
@@ -38,7 +49,7 @@ public class ObjectExtensionsTests
     }
 
     [Fact]
-    public void With_CreatesNewInstance()
+    public void Fused_CreatesNewInstance()
     {
         var obj = new object();
 
@@ -49,7 +60,7 @@ public class ObjectExtensionsTests
     }
 
     [Fact]
-    public void With_ReturnsSameInstance()
+    public void Fused_ReturnsSameInstance()
     {
         var obj = new object();
 
