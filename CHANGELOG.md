@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Features
+
+- Added support for .NET Standard 2.1
+
 ## 1.1.0
 
 ### Features
