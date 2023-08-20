@@ -5,7 +5,8 @@
         <Description>
             A tiny little package that let's you attach properties to .NET types dynamically at runtime
         </Description>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFrameworks>net7.0;netstandard2.1</TargetFrameworks>
+        <LangVersion>10</LangVersion>
         <ImplicitUsings>enable</ImplicitUsings>
         <Version>1.0.0</Version>
 
